@@ -1,0 +1,17 @@
+<header>
+    <h2 class="caption_border">Dashboard</h2>
+    <hr>
+    <nav>
+      <ul>
+        <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+        <li><a routerLink="/admin" routerLinkActive="active">Admin Dashboard</a></li>
+      </ul>
+    </nav>
+    <div class="user">
+      <h3> {{ name }} </h3>
+    </div>
+    <button (click)="logout()">
+      LOGOUT
+    </button>
+    <hr>
+</header>

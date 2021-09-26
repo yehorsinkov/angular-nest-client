@@ -1,0 +1,15 @@
+<form [formGroup]="form" (submit)="submit()">
+    <h1>Please register</h1>
+
+    <input formControlName="email" type="email" placeholder="" required class="form-control">
+    <input formControlName="password" type="password" placeholder="password" required class="form-control">
+    <input formControlName="name" placeholder="name" required class="form-control">
+    <input formControlName="family_name" placeholder="family name" required class="form-control">
+
+    <button type="submit">Submit</button>
+</form>
+
+
+<div>
+    <button (click)="toLogin()">LogIn</button>
+</div>

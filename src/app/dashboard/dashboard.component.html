@@ -1,0 +1,9 @@
+<app-header></app-header>
+<div *ngFor="let user of users$ | async">
+    <div class="user">
+        <div class="user-email">{{ user.email }}</div>
+        <div class="user-name">{{ user.name }}</div>
+        <div class="user-family_name">{{ user.family_name }}</div>
+        <hr>
+    </div>
+</div>
