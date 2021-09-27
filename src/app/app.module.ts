@@ -17,6 +17,7 @@ import * as fromAuth from '../app/state/reducers/user.reducer';
 import { StoreModule } from '@ngrx/store';
 import { CreateComponent } from './admin/create/create.component';
 import { CommonModule } from '@angular/common';
+import { ResolverUserComponent } from './resolver-user/resolver-user.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CommonModule } from '@angular/common';
     DashboardComponent,
     HeaderComponent,
     FormComponent,
-    CreateComponent
+    CreateComponent,
+    ResolverUserComponent
   ],
   imports: [
     BrowserModule,

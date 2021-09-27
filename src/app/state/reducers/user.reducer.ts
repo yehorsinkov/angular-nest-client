@@ -5,6 +5,7 @@ export interface State {
     apiUrl: string;
     users: User[];
     loggedUser: User;
+    isLogged: boolean;
 }
 
 const defaultUser: User = {
@@ -18,7 +19,8 @@ const defaultUser: User = {
 const initialState: State = {
     apiUrl: 'http://localhost:5000/',
     users: [],
-    loggedUser: defaultUser
+    loggedUser: defaultUser,
+    isLogged: false,
 }
 
 export function userReducer (
@@ -40,6 +42,11 @@ export function userReducer (
             return {
                 ...state,
                 users: state.users.concat(action.payload)
+            }
+        case UserActions.setLoggedState:
+            return {
+                ...state,
+                isLogged: action.payload
             }
         default:
             return state;

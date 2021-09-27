@@ -6,7 +6,7 @@ import { X_AUTH_TOKEN_EXPIRES_IN_LABEL, X_AUTH_TOKEN_LABEL, X_USER_ID } from './
 import { select, Store } from '@ngrx/store';
 import { getApiUrl } from './state/store';
 import { Router } from '@angular/router';
-import { SetLoggedUser } from './state/actions/user.actions';
+import { SetLoggedState, SetLoggedUser } from './state/actions/user.actions';
 
 
 @Injectable({
@@ -68,7 +68,6 @@ export class AuthService {
 				// 	map(
 				// 		(response: any) => {
 				// 			if (response) {
-				// 				debugger;
 				// 				// this.setToken(response.token);
 				// 				return response;
 				// 			} else {
@@ -86,12 +85,15 @@ export class AuthService {
 	}
 
 	public logOut(): void {
+		this.store.dispatch(new SetLoggedState(false));
 		this.removeTokenInfo();
 	}
 
 	public isLoggedIn(): boolean {
 		const token = this.getToken();
-		return !this.isTokenExpired() && Boolean(token);
+		const isLoggedIn = !this.isTokenExpired() && Boolean(token);
+		isLoggedIn && this.store.dispatch(new SetLoggedState(true));
+		return isLoggedIn;
 	}
 
 	public getToken(): string | null {

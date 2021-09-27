@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { X_USER_ID } from './constant';
 import { DashboardService } from './dashboard/dashboard.service';
 import { SetLoggedUser } from './state/actions/user.actions';
+import { getLoggedState } from './state/store';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { SetLoggedUser } from './state/actions/user.actions';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
+  public isLogged$ = this.store.select(getLoggedState);
   constructor(
     private authService: AuthService,
     private ds: DashboardService,
@@ -29,6 +31,5 @@ export class AppComponent implements OnInit {
       const { password, ...user } = res;
       this.store.dispatch(new SetLoggedUser(user));
     })
-    
   }
 }

@@ -7,3 +7,4 @@ export const userFeature: any = createFeatureSelector(USER_KEY);
 export const getUsersSelector = createSelector(userFeature, (state: State) => state.users);
 export const getLoggedUserSelector = createSelector(userFeature, (state: State) => state.loggedUser);
 export const getApiUrl = createSelector(userFeature, (state: State) => state.apiUrl);
+export const getLoggedState = createSelector(userFeature, (state: State) => state.isLogged);

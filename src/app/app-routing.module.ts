@@ -7,6 +7,8 @@ import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ResolverUserComponent } from './resolver-user/resolver-user.component';
+import { DataResolverService } from './resolver-user/data-resolver.service';
 
 
 const routes: Routes = [
@@ -23,7 +25,16 @@ const routes: Routes = [
     component: AdminComponent,
     canActivate: [AuthGuard],
     canDeactivate: [AuthGuard],
-  }
+  },
+  {
+    path: 'resolver',
+    component: ResolverUserComponent,
+    canActivate: [AuthGuard],
+    canDeactivate: [AuthGuard],
+    resolve: {
+      users: DataResolverService
+    },
+  },
 ];
 
 @NgModule({

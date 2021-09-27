@@ -7,6 +7,7 @@ export enum UserActions {
     loadUsers = '[User] Load Users',
     setLoggedUser = '[User] Set Logged User',
     addUser = '[User] Add User',
+    setLoggedState = '[User] Logged User'
 }
 
 export class LoadUsers implements Action {
@@ -27,8 +28,15 @@ export class SetLoggedUser implements Action {
     constructor(public payload: User) {}
 }
 
+export class SetLoggedState implements Action {
+    readonly type = UserActions.setLoggedState;
+
+    constructor(public payload: boolean) {}
+}
+
 export type UserUnions =
     | LoadUsers
     | SetLoggedUser
     | AddUser
+    | SetLoggedState
     ;
