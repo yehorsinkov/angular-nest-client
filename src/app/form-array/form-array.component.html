@@ -1,0 +1,20 @@
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+    <mat-form-field  class="example-full-width">
+        <mat-label>Имя</mat-label>
+        <input matInput placeholder="Имя" type="text" formControlName="userName">
+    </mat-form-field>
+    <mat-form-field  class="example-full-width">
+        <mat-label>Email Material</mat-label>
+        <input matInput placeholder="Email" name="email" formControlName="email">
+    </mat-form-field>
+    <ng-container formArrayName="phones">
+        <ng-container class="form-group" *ngFor="let phone of getFormsControls()['controls']; let i = index">
+            <div class="phone">
+                <mat-label>Телефон</mat-label>
+                <input matInput placeholder="Телефон"  type="text" formControlName="{{i}}" >
+            </div>
+            </ng-container>
+        <button mat-raised-button  (click)="addPhone()" color="accent">Добавить</button>
+    </ng-container>
+    <button mat-raised-button  [disabled]="myForm.invalid" color="primary">Primary</button>
+</form>

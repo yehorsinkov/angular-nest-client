@@ -51,7 +51,7 @@ export class AuthService {
 		this.http.post<any>(`${API_URL}auth/login`, payload)
 			.subscribe(res => {
 				if (res) {
-					const expireTime = 60;
+					const expireTime = 15000;
 					this.setToken(res.token);
 					this.setTokenExpireTime(expireTime);
 					this.store.dispatch(new SetLoggedUser(res.user));

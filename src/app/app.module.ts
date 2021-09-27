@@ -18,6 +18,9 @@ import { StoreModule } from '@ngrx/store';
 import { CreateComponent } from './admin/create/create.component';
 import { CommonModule } from '@angular/common';
 import { ResolverUserComponent } from './resolver-user/resolver-user.component';
+import { FormArrayComponent } from './form-array/form-array.component';
+import { DemoMaterialModule } from './other/material-module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { ResolverUserComponent } from './resolver-user/resolver-user.component';
     HeaderComponent,
     FormComponent,
     CreateComponent,
-    ResolverUserComponent
+    ResolverUserComponent,
+    FormArrayComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { ResolverUserComponent } from './resolver-user/resolver-user.component';
     StoreModule.forFeature(USER_KEY, fromAuth.userReducer),
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    DemoMaterialModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {
